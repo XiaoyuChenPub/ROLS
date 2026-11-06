@@ -1,0 +1,5 @@
+numpy>=1.21
+numpy!=2.0.*; sys_platform == 'darwin'
+scipy>=1.7
+pytest>=7
+matplotlib>=3.5

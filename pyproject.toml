@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rols"
+version = "1.0.0"
+description = "Riemannian ordinary least squares: regression and per-coefficient inference for manifold-valued responses with mixed manifold and scalar predictors"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "CC-BY-NC-4.0"}
+authors = [
+  {name = "Xiaoyu Chen", email = "xchen325@buffalo.edu"},
+  {name = "Yujing (Zipan) Huang"},
+  {name = "Yingyan Zeng"},
+]
+# numpy 2.0 wheels for macOS raise spurious floating-point warnings in matmul.
+dependencies = [
+  "numpy>=1.21",
+  "numpy!=2.0.*; sys_platform == 'darwin'",
+  "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "matplotlib>=3.5"]
+simulations = ["matplotlib>=3.5"]
+
+[tool.setuptools.packages.find]
+include = ["ROLS*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
